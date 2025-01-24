@@ -1,10 +1,10 @@
 import express from"express";
 import "dotenv/config";
-import mongoose from "mongoose"
+// import mongoose from "mongoose"
 
 
 //database connection 
-mongoose.connect(process.env.MONGO_URL)
+// mongoose.connect(process.env.MONGO_URL)
 
 const app=express();
 app.use(express.json())
