@@ -51,17 +51,15 @@ app.delete("/:id",async(req,res)=>{
 
 })
 
-// app.put("/:id",(req,res)=>{
-//     const edit =req.params.id
-//     if(!edit || isNaN(edit)){
-//         res.send("404 error of url")
-//     }
-//     const body =req.body
-//     const updateData = data.map((item)=>{
-//         return  item.id===Number(edit)?body:item
-//     })
-//    res.send(updateData)
-// })
+app.put("/:id",async(req,res)=>{
+    const edit =req.params.id
+    if(!edit || isNaN(edit)){
+        res.send("404 error of url")
+    }
+    const body =req.body
+    const updateData = await Student.findOneAndReplace({id:edit , update:body})
+   res.send(updateData)
+})
 
 app.listen(port,()=>{
     console.log("Server stared at port"+port);

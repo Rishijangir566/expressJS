@@ -33,6 +33,15 @@ app.post("/", async (req, res) => {
     res.status(201).send({ messege: "successfully created Teacher", newteacher: newTeacher })
 })
 
+app.delete("/id",async(req,res)=>{
+    const Iddelete = Number(req.params.id)
+    const deleteTeacher= await Teacher.findOneAndDelete({id:Iddelete})
+    if(!deleteTeacher){
+        res.send({messege:"teacher not found"})
+    }
+    res.status(200).send({messege:"deleted sucessfully",deleteTeacher:deleteTeacher})
+})
+
 app.listen(port, () => {
     console.log("Server stared at port" + port);
 
