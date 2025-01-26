@@ -19,7 +19,7 @@ const studentSchema=new mongoose.Schema({
     class:{type:String},
 })
 //model
-const Student =mongoose.model("Student",studentSchema)
+const Student = mongoose.model("Student",studentSchema)
 
 const app=express();
 app.use(express.json())
